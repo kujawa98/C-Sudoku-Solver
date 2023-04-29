@@ -8,8 +8,14 @@ void printGrid(int grid[9][9]) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             printf("%d ", grid[i][j]);
+            if (j % 3 == 2) {
+                printf(" ");
+            }
         }
         printf("\n");
+        if (i % 3 == 2) {
+            printf("\n");
+        }
     }
 }
 
