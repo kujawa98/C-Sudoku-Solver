@@ -4,11 +4,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-void printGrid(int grid[9][9]);
-
-bool isPossible(int grid[9][9], int y, int x, int number);
-
-void solve(int grid[9][9]);
+void solve(int **grid);
 
 #endif
-a

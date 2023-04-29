@@ -1,6 +1,6 @@
 #include "sudoku.h"
 
-void printGrid(int grid[9][9]) {
+void printGrid(int **grid) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             printf("%d ", grid[i][j]);
@@ -10,13 +10,13 @@ void printGrid(int grid[9][9]) {
         }
         printf("\n");
         if (i % 3 == 2) {
-            printf("\n");
+            printf("-------------------\n");
         }
     }
 }
 
 
-bool isPossible(int grid[9][9], int y, int x, int number) {
+bool isPossible(int **grid, int y, int x, int number) {
     for (int i = 0; i < 9; i++) {
         if (grid[y][i] == number) return false;
         if (grid[i][x] == number) return false;
@@ -31,7 +31,7 @@ bool isPossible(int grid[9][9], int y, int x, int number) {
     return true;
 }
 
-void solve(int grid[9][9]) {
+void solve(int **grid) {
     for (int y = 0; y < 9; y++) {
         for (int x = 0; x < 9; x++) {
             if (grid[y][x] == 0) {
