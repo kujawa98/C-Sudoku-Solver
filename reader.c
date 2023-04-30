@@ -8,11 +8,12 @@ int **allocateGrid();
 int **readGrid(const char *fileName) {
     char buffer;
     FILE *gridFile;
+    int **grid = allocateGrid();
     fopen_s(&gridFile, fileName, "r");
     if (NULL == gridFile) {
         printf("Unable to open file %s", fileName);
+        return grid;
     }
-    int **grid = allocateGrid();
     int x = 0;
     int y = 0;
     while (true) {
@@ -30,6 +31,7 @@ int **readGrid(const char *fileName) {
             x++;
         }
     }
+    fclose(gridFile);
     return grid;
 }
 
@@ -37,6 +39,9 @@ int **allocateGrid() {
     int **grid = (int **) malloc(9 * sizeof(int *));
     for (int i = 0; i < 9; i++) {
         grid[i] = (int *) malloc(9 * sizeof(int));
+        for (int j = 0; j < 9; ++j) {
+            grid[i][j] = 0;
+        }
     }
     return grid;
 }

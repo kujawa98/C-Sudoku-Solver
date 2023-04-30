@@ -1,6 +1,8 @@
+#include <assert.h>
 #include "sudoku.h"
 
 void printGrid(int **grid) {
+    printf("-------------------\n");
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             printf("%d ", grid[i][j]);
@@ -32,6 +34,7 @@ bool isPossible(int **grid, int y, int x, int number) {
 }
 
 void solve(int **grid) {
+    assert(grid != NULL);
     for (int y = 0; y < 9; y++) {
         for (int x = 0; x < 9; x++) {
             if (grid[y][x] == 0) {
@@ -47,6 +50,5 @@ void solve(int **grid) {
         }
     }
     printGrid(grid);
-    printf("\n");
 }
 
